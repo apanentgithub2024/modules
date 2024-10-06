@@ -6,7 +6,7 @@ function EvalEquation(problem, pemdas) {
 	if (pemdas) {
 		return 0 // Just a reminder that there must be a way to handle pemdas.
 	} else {
-		return problem.matchAll(/-?[0-9]+(\.[0-9]+)?|pi|e(uler)?|phi|[+\-*/\^]/gm).map(tokens => tokens.join("")).reduce(function(acc, op) {
+		return problem.matchAll(/-?[0-9]+(\.[0-9]+)?|pi|euler|e|phi|[+\-*/\^]/gm).map(tokens => tokens.join("")).reduce(function(acc, op) {
 			console.log(op)
 			if (id === 0) {
 				if (op === "+") {
