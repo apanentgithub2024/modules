@@ -1,12 +1,12 @@
 function EvalEquation(problem, pemdas) {
 	let id = 0
 	function lookup(v) {
-		return ({pi:3.141592653589793,e:2.718281828459045,phi:1.5707963267948966,euler:2.718281828459045,"+":1,"-":1,"*":1,"/":1})[v] || Number(v)
+		return ({pi:3.141592653589793,e:2.718281828459045,phi:1.618033988749895,euler:2.718281828459045,"+":1,"-":1,"*":1,"/":1,"Infinity":Infinity,"infinity":Infinity,"inf":Infinity,"Inf":Infinity})[v] || Number(v)
 	}
 	if (pemdas) {
-		return 0 // Just a reminder that there must be a way to handle pemdas.
+		return 0 // Just a reminder that there must be a way to handle pemdas
 	} else {
-		return problem.matchAll(/-?[0-9]+(\.[0-9]+)?|pi|euler|e|phi|[+\-*/\^]/gm).map(tokens => tokens.join("")).reduce(function(acc, op) {
+		return problem.matchAll(/-?[0-9]+|-?[0-9]\.[0-9]*|pi|euler|e|phi|[iI]nfinity|[iI]nf|[+\-*/\^]/gm).map(tokens => tokens.join("")).reduce(function(acc, op) {
 			console.log(op)
 			if (id === 0) {
 				if (op === "+") {
