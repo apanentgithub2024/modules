@@ -1,7 +1,8 @@
 function EvalEquation(problem, pemdas) {
 	let id = 0
 	function lookup(v) {
-		return ({pi:3.141592653589793,e:2.718281828459045,phi:1.618033988749895,euler:2.718281828459045,"+":1,"-":1,"*":1,"/":1,"Infinity":Infinity,"infinity":Infinity,"inf":Infinity,"Inf":Infinity})[v] || Number(v)
+		const table = {pi:3.141592653589793,e:2.718281828459045,phi:1.618033988749895,euler:2.718281828459045,"+":1,"-":1,"*":1,"/":1,"Infinity":Infinity,"infinity":Infinity,"inf":Infinity,"Inf":Infinity}
+		return (v[0] === "-" ? -table[v] : table[v]) || Number(v)
 	}
 	if (pemdas) {
 		return 0 // Just a reminder that there must be a way to handle pemdas
